@@ -1,0 +1,11 @@
+//Phase 1
+Simulator headers 
+
+// Phase 2 - Gisi Musa, Oana Miron
+
+Implemented Assembler headers
+Implemented Simulator headers and Cell.cpp, Bug.cpp, World.cpp, Marker.cpp
+Fixed errors 
+Unit testing for Bug, Cell, World and Marker based on CppUnit
+/* bcs of dependencies, future modifications might be needed, though it compiles and runs properly */
+

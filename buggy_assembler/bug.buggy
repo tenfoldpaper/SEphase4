@@ -1,0 +1,35 @@
+;
+; bug.buggy
+;
+_search:
+    sense ahead food else _walk
+    move else _search
+    pickup else _search
+    goto _home
+_walk:
+    flip 3 else _searchright
+    turn left
+    goto _search
+_searchright:
+    flip 2 else _searchstraight
+    turn right
+    goto _search
+_searchstraight:
+    move else _walk
+    goto _search
+_home:
+    sense ahead home else _walkhome
+    move else _home
+    drop
+    goto _search
+_walkhome:
+    flip 3 else _walkhomeright
+    turn left
+    goto _home
+_walkhomeright:
+    flip 2 else _walkhomestraight
+    turn right
+    goto _home
+_walkhomestraight:
+    move else _walkhome
+    goto _home

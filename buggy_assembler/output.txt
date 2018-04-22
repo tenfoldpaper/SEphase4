@@ -1,0 +1,16 @@
+sense ahead 1 _walk food 
+move 2 _search 
+pickup _home _search 
+flip 3 4 _searchright 
+turn left _search 
+flip 2 6 _searchstraight 
+turn right _search 
+move _search _walk 
+sense ahead 9 _walkhome home 
+move 10 _home 
+drop _search 
+flip 3 12 _walkhomeright 
+turn left _home 
+flip 2 14 _walkhomestraight 
+turn right _home 
+move _home _walkhome 

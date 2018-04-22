@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <data xmlns="http://www.netbeans.org/ns/make-project-private/1">
+        <activeConfTypeElem>1</activeConfTypeElem>
+        <activeConfIndexElem>0</activeConfIndexElem>
+    </data>
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/home/whitebox/Documents/SoftwareEngineering/phase4/simulator/tests/worldtest.cpp</file>
+            <file>file:/home/whitebox/Documents/SoftwareEngineering/phase4/simulator/exception.cpp</file>
+            <file>file:/home/whitebox/Documents/SoftwareEngineering/phase4/simulator/Marker.cpp</file>
+            <file>file:/home/whitebox/Documents/SoftwareEngineering/phase4/simulator/tests/martialarttest.cpp</file>
+            <file>file:/home/whitebox/Documents/SoftwareEngineering/phase4/simulator/headers/world.h</file>
+            <file>file:/home/whitebox/Documents/SoftwareEngineering/phase4/simulator/tests/instrtest.cpp</file>
+            <file>file:/home/whitebox/Documents/SoftwareEngineering/phase4/simulator/Cell.cpp</file>
+            <file>file:/home/whitebox/Documents/SoftwareEngineering/phase4/simulator/tests/bugtest.cpp</file>
+            <file>file:/home/whitebox/Documents/SoftwareEngineering/phase4/simulator/headers/inst/instruction.h</file>
+            <file>file:/home/whitebox/Documents/SoftwareEngineering/phase4/simulator/headers/program.h</file>
+            <file>file:/home/whitebox/Documents/SoftwareEngineering/phase4/simulator/Program.cpp</file>
+            <file>file:/home/whitebox/Documents/SoftwareEngineering/phase4/simulator/bug.cpp</file>
+            <file>file:/home/whitebox/Documents/SoftwareEngineering/phase4/simulator/headers/aux.h</file>
+            <file>file:/home/whitebox/Documents/SoftwareEngineering/phase4/simulator/tests/CellTest.cpp</file>
+            <file>file:/home/whitebox/Documents/SoftwareEngineering/phase4/simulator/main.cpp</file>
+            <file>file:/home/whitebox/Documents/SoftwareEngineering/phase4/simulator/headers/Cell.h</file>
+            <file>file:/home/whitebox/Documents/SoftwareEngineering/phase4/simulator/world.cpp</file>
+            <file>file:/home/whitebox/Documents/SoftwareEngineering/phase4/simulator/headers/bug.h</file>
+            <file>file:/home/whitebox/Documents/SoftwareEngineering/phase4/simulator/instruction.cpp</file>
+            <file>file:/home/whitebox/Documents/SoftwareEngineering/phase4/simulator/headers/Marker.h</file>
+            <file>file:/home/whitebox/Documents/SoftwareEngineering/phase4/simulator/tests/programtest.cpp</file>
+            <file>file:/home/whitebox/Documents/SoftwareEngineering/phase4/simulator/headers/exception.h</file>
+            <file>file:/home/whitebox/Documents/SoftwareEngineering/phase4/simulator/tests/MarkerTest.cpp</file>
+        </group>
+    </open-files>
+</project-private>
