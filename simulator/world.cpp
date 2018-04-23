@@ -66,7 +66,7 @@ int World::load(string mapname){
     cout << "Child vectors resized \n";
     
     getline(wf, line);
-    cout << line;
+    //cout << line;
     for (int l = 0; l < length; l++){
         getline(wf, line);
         line.erase(std::remove(line.begin(), line.end(), ' '), line.end());
@@ -97,7 +97,7 @@ int World::load(string mapname){
             
             //cout << "Cell assigned successfully" << endl;
         }
-        cout << endl;
+        //cout << endl;
         
     }
     cout << "World initialization complete. \n";
@@ -292,12 +292,12 @@ bool World::place_at(aux::tposition p, Bug* b){
 int World::food_at(aux::tposition p){
     return get_cell(p)->get_food();
 };
-bool World::set_food_at(aux::tposition p, int f){ //not additive;
+bool World::set_food_at(aux::tposition p, int f){ //now additive;
     if(get_cell(p)->get_obstructed() ){
         return false;
     }
     else{
-        get_cell(p)->set_food(f);
+        get_cell(p)->add_more_food(f);
     }
 };
     
@@ -316,6 +316,8 @@ bool World::other_base_at(aux::tposition p, aux::tcolor c){
 bool World::cell_matches(aux::tposition p, aux::tcondition cond, aux::tcolor c){
     Cell* cell = get_cell(p);
     aux::tmark t_mark;
+    
+    //Check for team-irrelevant conditions first 
     if(cell->get_obstructed()){
         return cond.cond == 6;
     }
@@ -618,9 +620,13 @@ bool World::move(Bug* b){ //move forward in the current direction by 1 unit
 
 //random function
 
+//flip is broken 
 bool World::flip(Bug* b, int n){
+    
     srand(time(NULL));
-    return (rand()%n + 1 == 1);
+    int x = rand()%n + 1;
+    //cout << " "<< x << " ";
+    return (x == n);
 };
 
 bool World::direction(Bug* b, int n){

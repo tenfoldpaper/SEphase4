@@ -42,6 +42,7 @@ TEST(DISABLED_WorldTest, testBugCount){
     cout << "Cell size: " << w.get_cellcont().size() << " " << w.get_cellcont()[0].size() << endl;
     cout << "Black bug count: " << w.black_count() << endl;
     cout << "Red bug count: " << w.red_count() << endl;
+    w.get_blackbugs()[0]->bug_stats();
     w.get_blackbugs()[0]->set_has_food(true);
     w.get_blackbugs()[5]->set_has_food(true);
     w.get_blackbugs()[4]->set_has_food(true);
@@ -49,11 +50,14 @@ TEST(DISABLED_WorldTest, testBugCount){
     w.get_blackbugs()[2]->set_has_food(true);
     w.get_blackbugs()[3]->set_has_food(true);
     
-    EXPECT_EQ(1, w.get_blackbugs()[0]->get_has_food());
     EXPECT_EQ(1, w.get_blackbugs()[1]->get_has_food());
     EXPECT_EQ(6, w.black_food());
+    w.get_blackbugs()[0]->bug_stats();
+    
+    
 }
 //phase 4
+/*
 TEST(WorldTest, testBugCount){
     World w;
     w.load("map.txt");
@@ -73,3 +77,4 @@ TEST(WorldTest, testBugCount){
     p = w.get_blackbugs()[0]->get_position();
     cout << p.x << p.y;
 }
+ * */

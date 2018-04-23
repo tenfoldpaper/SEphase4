@@ -15,6 +15,10 @@ void Bug::bug_stats(){
     cout << "ProgID:" << prog_id << endl;
     cout << "Dead:" << dead << endl;
     cout << "Resting:" << resting << endl;
+    cout << "Position:" << pos.x << " " << pos.y << endl;
+    cout << "Food:" << has_food << endl;
+    cout << "State:" << state.st << endl;
+    cout << "Direction: " << direction.d << endl;
 }
 
 //phase 4

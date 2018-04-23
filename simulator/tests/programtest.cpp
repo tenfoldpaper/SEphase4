@@ -15,14 +15,19 @@
 using namespace std;
 
 TEST(ProgramTest, initandgetter){
-    Program p(1, "final.bug", "final.bug");
+    Program p(1, "map.txt", "final.bug", "final.bug");
     
     cout << p.get_blackinst().size() << p.get_redinst().size() << endl;
     for(int i = 0; i < p.get_blackinst().size(); i++){
-        cout << p.get_blackinst()[i]->get_iName() << endl;
+        p.get_blackinst()[i]->print_inst();
     }
     
     for(int i = 0; i < p.get_redinst().size(); i++){
-        cout << p.get_redinst()[i]->get_iName() << endl;
+        p.get_redinst()[i]->print_inst();
     }
+    
+    World w = p.get_world();
+      p.run_game(1000);
+    
 }
+

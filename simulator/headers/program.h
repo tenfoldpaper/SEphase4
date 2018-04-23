@@ -22,6 +22,7 @@ public:
   }
   void step(Bug*);
   void run_game(int);
+  World get_world();
 };
 
 

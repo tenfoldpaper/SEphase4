@@ -25,10 +25,10 @@ private:
     aux::tstate y;
     aux::tdirection direction;
     std::string cond;
-    int marker;
-    int sensedir;
-    int lr; //left = 0 or right = 1
-    int n;
+    int marker = -1;
+    int sensedir = -1;
+    int lr = -1; //left = 0 or right = 1
+    int n = -1;
     
 public:
     instruction();
@@ -65,6 +65,8 @@ public:
     
     aux::tdirection get_direction();
     void set_direction(int);
+    
+    void print_inst();
 };
 
 

@@ -8,6 +8,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <iostream>
 
 using namespace std;
 
@@ -119,11 +120,13 @@ void instruction::parse(std::vector<string> input_line){
         
         case 437: //drop
             sscanf(input_line[1].c_str(), "%d", &x.st);
+            break;
             
         case 961: //direction
             sscanf(input_line[1].c_str(), "%d", &direction.d);
             sscanf(input_line[2].c_str(), "%d", &x.st);
             sscanf(input_line[3].c_str(), "%d", &y.st);
+            break;
     }
 };
     
@@ -188,4 +191,10 @@ aux::tdirection instruction::get_direction(){
 }
 void instruction::set_direction(int d){
     direction.d = d;
+}
+    
+void instruction::print_inst(){
+    cout << "iName: " << iName << " iID: " << iID << " x: " << x.st << " y: " << y.st 
+            << " dir: " << direction.d << " cond: " << cond << " marker: " << marker 
+            << " sensedir: " << sensedir << " lr: " << lr << " flip n: " << n << endl;
 }

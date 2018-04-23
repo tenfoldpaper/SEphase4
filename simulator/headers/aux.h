@@ -67,7 +67,20 @@ namespace aux{
                 throw "The state is out of boundaries\n";
         };
     };
-
+    
+    /* Condition value chart
+    friend 		1
+    foe 		2
+    friendwithfood 	3
+    foewithfood 	4
+    food 		5
+    rock 		6
+    marker 		7
+    foemarker           8
+    home 		9
+    foehome 		10
+     */
+    
     struct tcondition{
         int cond;
         tcondition(int x):cond(x){};

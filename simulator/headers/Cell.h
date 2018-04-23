@@ -41,6 +41,7 @@ extern "C" {
         void set_occupancy(bool);
         int get_food(); //return number of food available
         void set_food(int new_food);
+        void add_more_food(int);
         void add_food(){
             food++;
         }

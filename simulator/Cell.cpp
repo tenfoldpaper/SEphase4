@@ -59,7 +59,16 @@ void Cell::set_food(int new_food) {
     if (new_food >= 0) {
         food = new_food;
     } else {
-        throw Exception("Food can't be negative valued");
+        throw Exception("Food can't be a negative value");
+    }
+}
+
+void Cell::add_more_food(int new_food){
+    if(new_food >= 0){
+        food += new_food;
+    }
+    else{
+        throw Exception("Food can't be a negative value");
     }
 }
 
