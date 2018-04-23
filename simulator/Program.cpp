@@ -2,6 +2,8 @@
 #include <fstream>
 #include <iostream>
 #include <sstream>
+#include <cmath>
+#include <time.h>
 
 using namespace std;
 
@@ -21,6 +23,7 @@ vector<std::string> split(string s, char delim){
 
 Program::Program(int prog_id, string mapfile, string black_bug, string red_bug) //.bug and .map file input here 
 {
+    srand((unsigned)time(0));
     id = prog_id;
     w.load(mapfile);
     ifstream black_f(black_bug, std::ifstream::in);
@@ -37,13 +40,11 @@ Program::Program(int prog_id, string mapfile, string black_bug, string red_bug) 
     
     while(getline(black_f, c)){
         vector<string> temp = split(c, ' ');
-        cout << temp.size() << endl;
         instruction* i = new instruction(temp);
         black_inst.push_back(i);
     }
     
     while(getline(red_f, c)){
-        cout << c << endl;
         vector<string> temp = split(c, ' ');
         instruction* i = new instruction(temp);
         red_inst.push_back(i);
@@ -58,7 +59,7 @@ void Program::step(Bug* b){
     int sleep_cycles = 14;
     vector<instruction*> brain;
     if (b->is_dead()){
-        cout << "Bug " << b->get_prog_id() << " of team " << b->get_color().c << " is dead. \n";
+        //cout << "Bug " << b->get_prog_id() << " of team " << b->get_color().c << " is dead. \n";
         return;
     }
     else{
@@ -75,8 +76,8 @@ void Program::step(Bug* b){
         int curr_state = b->get_state();
         int s;
         if(resting > 0){
-            cout << "##########Resting: " << resting << endl;
-            cout << "I need to rest. "<< endl;
+            //cout << "##########Resting: " << resting << endl;
+            //cout << "I need to rest. "<< endl;
             b->set_resting(resting-1);
         }
         else{
@@ -84,7 +85,7 @@ void Program::step(Bug* b){
             switch(s){
                 //sense
                 case 542:
-                    cout << "I sense a great disturbance in the force.\n";
+                    //cout << "I sense a great disturbance in the force.\n";
                     if(w.sense(b, brain[curr_state]->get_sensedir(), brain[curr_state]->get_cond())){
                         b->set_state(brain[curr_state]->get_xState());
                     }
@@ -95,21 +96,21 @@ void Program::step(Bug* b){
                     
                 //mark
                 case 427:
-                    cout << "Nobody expects the Bug Inquisition. \n";
+                    //cout << "Nobody expects the Bug Inquisition. \n";
                     w.mark(b, brain[curr_state]->get_marker());
                     b->set_state(brain[curr_state]->get_xState());
                     break;
                     
                 //unmark
                 case 654:
-                    cout << "Clean up!\n";
+                    //cout << "Clean up!\n";
                     w.unmark(b, brain[curr_state]->get_marker());
                     b->set_state(brain[curr_state]->get_xState());
                     break;
                     
                 //pickup
                 case 652:
-                    cout << "Ooh, a piece of candy.\n";
+                    //cout << "Ooh, a piece of candy.\n";
                     if(w.pickup(b)){
                         b->set_state(brain[curr_state]->get_xState());
                     }
@@ -120,7 +121,7 @@ void Program::step(Bug* b){
                     
                 //drop
                 case 437:
-                    cout << "Medivac drops\n";
+                    //cout << "Medivac drops\n";
                     if(w.drop(b)){
                         b->set_state(brain[curr_state]->get_xState());
                     }
@@ -131,14 +132,14 @@ void Program::step(Bug* b){
                     
                 //turn
                 case 457:
-                    cout << "Gotta turn hard!\n";
+                    //cout << "Gotta turn hard!\n";
                     w.turn(b, brain[curr_state]->get_lr());
                     b->set_state(brain[curr_state]->get_xState());
                     break;
                     
                 //move
                 case 439:
-                    cout << "Go go go! \n";
+                    //cout << "Go go go! \n";
                     if(w.move(b)){
                         b->set_state(brain[curr_state]->get_xState());
                         b->set_resting(sleep_cycles);
@@ -150,7 +151,7 @@ void Program::step(Bug* b){
                     
                 //flip
                 case 428:
-                    cout << "Oh flip. \n";
+                    //cout << "Oh flip. \n";
                     if(w.flip(b, brain[curr_state]->get_n())){
                         b->set_state(brain[curr_state]->get_xState());
                     }
@@ -161,7 +162,7 @@ void Program::step(Bug* b){
                     
                 //direction
                 case 961:
-                    cout << "Right way is no way.\n";
+                    //cout << "Right way is no way.\n";
                     if(w.direction(b, brain[curr_state]->get_direction().d)){
                         b->set_state(brain[curr_state]->get_xState());
                     }
@@ -184,7 +185,7 @@ void Program::run_game(int n){
     int red_count = w.red_count();
     
     for(i; i < n; i++){
-        cout << "Round " << i << ". FIGHT!\n";
+        //cout << "Round " << i << ". FIGHT!\n";
         for(b; b < black_count; b++){
             step(w.get_blackbugs()[b]);
         }
@@ -195,8 +196,6 @@ void Program::run_game(int n){
         r = 0;
         w.check_for_surrounded_bugs_mapwide();
     }
-    cout << "Red food: " << w.red_food() << endl;
-    cout << "Black food: " << w.black_food() << endl;
     int winner = w.winner().c;
     if(winner == 1){
         cout << "Red wins!" << endl;

@@ -79,7 +79,7 @@ public:
             throw Exception("Bug already has food! \n");
         }
         if(has_food == false && f == true){
-            cout << "Grabbing food!\n";
+            //cout << "Grabbing food!\n";
         }
         has_food = f;
     }

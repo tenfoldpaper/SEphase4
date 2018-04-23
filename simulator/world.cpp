@@ -108,7 +108,8 @@ aux::tcolor World::winner(){
     
     int black_score = black_food();
     int red_score = red_food();
-    
+    cout << "Black food: " << black_score << endl;
+    cout << "Red food: " << red_score << endl;
     int winnerInt;
     if(black_score == red_score){
         winnerInt = 999;
@@ -213,7 +214,6 @@ int World::red_food(){
     int count = 0;
     for(int i = 0; i<World::red_count(); i++){
         if(redbugs[i]->get_has_food()){
-            cout << "Red Bug "<< i<< " has food\n";
             count++;
         }
     }
@@ -233,7 +233,6 @@ int World::black_food(){
     int count = 0;
     for(int i = 0; i<World::black_count(); i++){
         if(blackbugs[i]->get_has_food()){
-            cout << "Black Bug "<< i<< " has food\n";
             count++;
         }
     }
@@ -475,15 +474,11 @@ void World::check_for_surrounded_bugs(aux::tposition p){
 
 //phase 4
 void World::check_for_surrounded_bugs_mapwide(){
-    int i = 0;
-    int j = 0;
-    aux::tposition p;
-    for(i; i < length; i++){
-        for(j; j < width; j++){
-            p.x = j;
-            p.y = i;
-            check_for_surrounded_bugs(p);
-        }
+    for (int i = 0; i < blackbugs.size(); i++){
+        check_for_surrounded_bugs(blackbugs[i]->get_position());
+    }
+    for (int i = 0; i < redbugs.size(); i++){
+        check_for_surrounded_bugs(redbugs[i]->get_position());
     }
 }
 aux::tposition get_ahead_position(aux::tposition p, int d){
@@ -622,11 +617,9 @@ bool World::move(Bug* b){ //move forward in the current direction by 1 unit
 
 //flip is broken 
 bool World::flip(Bug* b, int n){
-    
-    srand(time(NULL));
-    int x = rand()%n + 1;
+    int x = rand()%n;
     //cout << " "<< x << " ";
-    return (x == n);
+    return (x == 0);
 };
 
 bool World::direction(Bug* b, int n){
